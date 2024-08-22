@@ -11,83 +11,57 @@ function getComputerChoice(){
     }
 }
 
-let Humanchoice=prompt("Enter rock,paper,scissors: ");
-function getHumanChoice(){
-    
-    if (Humanchoice==="rock" || Humanchoice==="paper" || Humanchoice==="scissors"){
-        return Humanchoice;
-    }
-    else{
-        // console.log("not valid ");
-        // return undefined;
-    }
-}
-
-
 let humanScore=0;
 let computerScore=0;
-
+let tie=0;
+let resultmsg="";
 function playRound(humanChoice,computerChoice){
     console.log(`the human choice ${humanChoice}`)
     console.log(`the computer choice ${computerChoice}`)
+    console.log(`the result is ${resultmsg}`)
     if (humanChoice==computerChoice){
-        console.log("it's a tie !");
-        console.log("--------------------------------");
+        resultmsg=`it's a Tie! both chose ${humanChoice}`;
+        tie++;
     }
     else if (humanChoice=="rock" && computerChoice=="scissors"){
-        console.log("you won !");
+        resultmsg=`you won ${humanChoice} beats ${computerChoice}`;
         humanScore++;
-        console.log("--------------------------------");
+        
     }
     else if (humanChoice=="paper" && computerChoice=="rock"){
-        console.log("you won !");
+        resultmsg=`you won ${humanChoice} beats ${computerChoice}`;
         humanScore++;
-        console.log("--------------------------------");
+        
     }
     else if (humanChoice=="scissors" && computerChoice=="paper"){
-        console.log("you won !");
+        resultmsg=`you won ${humanChoice} beats ${computerChoice}`;
         humanScore++;
-        console.log("--------------------------------");
+        
     }
     else {
-        console.log("computer wins !");
+        resultmsg=`computer wins ! ${computerChoice} beats ${humanChoice}`;
         computerScore++;
-        console.log("--------------------------------");
+        
     }
+    document.getElementById("round-result").innerHTML=resultmsg;
+document.getElementById("humanScore").innerHTML=`human score : ${humanScore}`;
+document.getElementById("computerScore").innerHTML=`computer score : ${computerScore}`;
+document.getElementById("tie").innerHTML=`tie : ${tie}`;
 }
 
 
-let humanChoice1=getHumanChoice();
-let computerChoice1=getComputerChoice();
 
-playRound(humanChoice1,computerChoice1);
+let element1 =document.getElementById("rock");
+element1.addEventListener("click",function(){
+    playRound("rock",getComputerChoice())
+});
 
+let element2=document.getElementById("paper");
+element2.addEventListener("click",function(){
+    playRound("paper",getComputerChoice());
+})
 
-function playGame(){
-
-    let rounds=0;
-    while(rounds<4){
-        rounds++;
-        let humanChoice1=getHumanChoice();
-        let computerChoice1=getComputerChoice();
-        playRound(humanChoice1,computerChoice1);
-    }
-    if (computerScore> humanScore){
-        console.log("computer beats you!");
-        console.log("--------------------------------");
-    }
-    else if (computerScore<humanScore){
-        console.log("you beated the computer :)");
-        console.log("--------------------------------");
-    }
-    else {
-        console.log(" the result between them : it's a draw");
-        console.log("--------------------------------");
-    }
-}
-
-playGame();
-
-console.log(`the human score is ${humanScore}`);
-console.log(`the computer score is ${computerScore}`);
-console.log("--------------------------------");
+let element3=document.getElementById("scissors");
+element3.addEventListener("click",function(){
+    playRound("scissors",getComputerChoice());
+});

@@ -1,0 +1,11 @@
+*{
+    background-color:lightslategrey;
+
+}
+#rock,#paper,#scissors{
+    width: 100px;
+    color: black;
+    background-color:blanchedalmond;
+    border: 2px solid black;
+    border-radius: 6px;
+}

@@ -22,33 +22,38 @@ function playRound(humanChoice,computerChoice){
     if (humanChoice==computerChoice){
         resultmsg=`it's a Tie! both chose ${humanChoice}`;
         tie++;
+        document.getElementById("round-result").style.color="yellow";
+        document.getElementById("round-result").innerHTML=resultmsg;
     }
     else if (humanChoice=="rock" && computerChoice=="scissors"){
         resultmsg=`you won ${humanChoice} beats ${computerChoice}`;
         humanScore++;
-        
+        document.getElementById("round-result").style.color="green";
+        document.getElementById("round-result").innerHTML=resultmsg;
     }
     else if (humanChoice=="paper" && computerChoice=="rock"){
         resultmsg=`you won ${humanChoice} beats ${computerChoice}`;
         humanScore++;
-        
+        document.getElementById("round-result").style.color="green";
+        document.getElementById("round-result").innerHTML=resultmsg;
     }
     else if (humanChoice=="scissors" && computerChoice=="paper"){
         resultmsg=`you won ${humanChoice} beats ${computerChoice}`;
         humanScore++;
-        
+        document.getElementById("round-result").style.color="green";
+        document.getElementById("round-result").innerHTML=resultmsg;
     }
     else {
         resultmsg=`computer wins ! ${computerChoice} beats ${humanChoice}`;
         computerScore++;
-        
+        document.getElementById("round-result").style.color="red";
+        document.getElementById("round-result").innerHTML=resultmsg;
     }
     document.getElementById("round-result").innerHTML=resultmsg;
-document.getElementById("humanScore").innerHTML=`human score : ${humanScore}`;
-document.getElementById("computerScore").innerHTML=`computer score : ${computerScore}`;
+document.getElementById("humanScore").innerHTML=`Human score : ${humanScore}`;
+document.getElementById("computerScore").innerHTML=`Computer score : ${computerScore}`;
 document.getElementById("tie").innerHTML=`tie : ${tie}`;
 }
-
 
 
 let element1 =document.getElementById("rock");
